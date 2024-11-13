@@ -74,7 +74,7 @@ nav {
 
 /* Hero Section */
 .hero {
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/images/vecteezy_abstract-luxury-curve-golden-lines-lighting-effect-and-dust_14553882.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../images/vecteezy_abstract-luxury-curve-golden-lines-lighting-effect-and-dust_14553882.jpg');
     background-size: cover;
     background-position: center;
     color: white;
