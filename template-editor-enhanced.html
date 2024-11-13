@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Editor - Design Studio</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/flyer-template-css.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="Logo" height="30">
+        </div>
+        <div class="nav-links">
+            <a href="./index.html">Home</a>
+            <a href="./template-editor.html" class="active">Templates</a>
+            <a href="#">Marketing</a>
+            <a href="#">Design Studio</a>
+            <a href="#">Pricing</a>
+        </div>
+        <div class="nav-buttons">
+            <button class="btn">Help</button>
+            <button class="btn btn-primary">Sign In</button>
+        </div>
+    </nav>
+
+    <div class="template-workspace">
+        <aside class="template-sidebar">
+            <div class="element-controls">
+                <h3>Add Elements</h3>
+                <div class="control-group">
+                    <button class="btn btn-primary" onclick="addElement('text')">Add Text</button>
+                </div>
+                <div class="control-group">
+                    <button class="btn btn-primary" onclick="addElement('shape')">Add Shape</button>
+                </div>
+                <div class="control-group">
+                    <button class="btn btn-primary" onclick="addElement('image')">Add Image</button>
+                </div>
+            </div>
+
+            <div class="element-controls">
+                <h3>Element Properties</h3>
+                <div class="control-group">
+                    <label>Text Content</label>
+                    <input type="text" id="textContent" onchange="updateSelectedElement('text')">
+                </div>
+                <div class="control-group">
+                    <label>Font Size</label>
+                    <input type="number" id="fontSize" min="8" max="72" value="16" onchange="updateSelectedElement('fontSize')">
+                </div>
+                <div class="control-group">
+                    <label>Color</label>
+                    <div class="color-picker">
+                        <div class="color-option selected" style="background: #000000" onclick="updateSelectedElement('color', '#000000')"></div>
+                        <div class="color-option" style="background: #5C6EFF" onclick="updateSelectedElement('color', '#5C6EFF')"></div>
+                        <div class="color-option" style="background: #FF5C5C" onclick="updateSelectedElement('color', '#FF5C5C')"></div>
+                        <div class="color-option" style="background: #4CAF50" onclick="updateSelectedElement('color', '#4CAF50')"></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="template-preview">
+            <div class="template-controls">
+                <select id="templateSize" onchange="updateCanvasSize()">
+                    <option value="flyer">Flyer (8.5" x 11")</option>
+                    <option value="poster">Poster (18" x 24")</option>
+                    <option value="social">Social Media (1080 x 1080)</option>
+                </select>
+                <button class="btn" onclick="undoAction()">Undo</button>
+                <button class="btn" onclick="redoAction()">Redo</button>
+            </div>
+
+            <div class="template-canvas" id="canvas">
+                <!-- Elements will be added here dynamically -->
+            </div>
+
+            <div class="template-actions">
+                <button class="btn" onclick="saveTemplate()">Save Draft</button>
+                <button class="btn btn-primary" onclick="exportTemplate()">Export</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/template-editor-enhanced-js.js"></script>
+</body>
+</html>
